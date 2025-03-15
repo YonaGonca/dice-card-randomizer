@@ -1,0 +1,202 @@
+@font-face {
+    font-family: 'Casino';  /* Nombre que usarás para la fuente */
+    src: url('media/GrandCasinoDemo.otf') format('opentype'),
+}
+
+/*General styles*/
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Casino', sans-serif; 
+}
+
+body{
+    background-image: url('media/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 100px;
+    color: #8B0000;
+    text-shadow:
+    2px 2px 0px #d8b800,  /* Borde superior izquierdo */
+    -2px -2px 0px #d8b800, /* Borde inferior derecho */
+    2px -2px 0px #d8b800,  /* Borde inferior izquierdo */
+    -2px 2px 0px #d8b800;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+/*Dice roller*/
+.dice-container{
+    display: flex;
+    
+
+}
+
+#container-dice-roller, #container-card-roller{
+    width: 270px;
+    height: 360px;
+    background-color: #8B0000;
+    border: 4px solid #d8b800;
+    margin: 30px auto;
+    border-radius: 30px;
+}
+
+#container-dice-roller{
+    margin-right: 100px;
+}
+
+
+.dice {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.dice-dot {
+    --top: 0%;
+    --left: 0%;
+
+    width: 15px;
+    height: 15px;
+    background-color: #000;
+    border-radius: 50%;
+
+    /* Dot positioning */
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top)*-1));
+}
+
+.btn-roll-dice {
+    margin-top: 10px;
+}
+
+/*Card roller*/
+
+.card-container{
+    position: relative;
+    overflow: hidden;
+    width: 213px;
+    height: 285px;
+}
+
+#container-card-roller{
+    margin-left: 100px;
+}
+
+.cards{
+    --top: 0px;
+    --left: 0px;
+    image-rendering: pixelated;
+    width: 213px;
+    height: 285px;
+    object-fit:none;
+    transform: scale(3);
+    transform-origin: 0px 0px;
+    object-position: var(--left) var(--top);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#card_front{
+    image-rendering: pixelated;
+    width: 213px;
+    height: 285px;
+}
+
+/*Inputs and button*/
+select {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #d8b800;
+    border-radius: 5px;
+    background-color: #8B0000;
+    color: white;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  
+  select option {
+    background-color: #8B0000;
+  }
+  
+  
+  /* CSS */
+  .button-19 {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  .button-19:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .button-19,
+  .button-19:focus {
+    user-select: auto;
+  }
+  
+  .button-19:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+  
+  .button-19:disabled {
+    cursor: auto;
+  }
+  
+  .button-19:active {
+    border-width: 4px 0 0;
+    background: none;
+  }

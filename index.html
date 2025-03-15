@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice and Card Roll</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <h1>Dice and Card Randomizer</h1>
+    <div id="container">
+    <div id="container-dice-roller">
+        <div class="dice-container">
+
+        </div>
+        <button type="button" class="btn-roll-dice  button-19">Roll</button>
+        <select name="numberOfDice" id="numberOfDice" onchange="numberOfDice()">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+    <div id="container-card-roller">
+        <div class="card-container">
+            <img src="media/front.png" alt="" id="card_front">
+            <img src="media/cards.png" alt="" class="cards">
+        </div>
+        <button type="button" class="btn-roll-card button-19">Roll</button>
+    </div>
+    </div>
+</body>
+</html>
