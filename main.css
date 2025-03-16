@@ -33,10 +33,10 @@ h1{
 }
 
 /*Dice roller*/
-.dice-container{
-    display: flex;
-    
 
+.dice-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 #container-dice-roller, #container-card-roller{
@@ -46,6 +46,7 @@ h1{
     border: 4px solid #d8b800;
     margin: 30px auto;
     border-radius: 30px;
+    position: relative;
 }
 
 #container-dice-roller{
@@ -57,9 +58,10 @@ h1{
     width: 80px;
     height: 80px;
     position: relative;
-    margin: 5px;
+    margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    background-color: white;
 }
 
 .dice-dot {
@@ -78,8 +80,12 @@ h1{
     transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top)*-1));
 }
 
-.btn-roll-dice {
-    margin-top: 10px;
+#dice-inputs{
+    width: 155px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    left: 55px;
 }
 
 /*Card roller*/
@@ -87,8 +93,9 @@ h1{
 .card-container{
     position: relative;
     overflow: hidden;
-    width: 213px;
-    height: 285px;
+    width: 177.5px;
+    height: 237.5px;
+    margin: 30px auto 0 auto;
 }
 
 #container-card-roller{
@@ -99,21 +106,27 @@ h1{
     --top: 0px;
     --left: 0px;
     image-rendering: pixelated;
-    width: 213px;
-    height: 285px;
+    width: 177.5px;
+    height: 237.5px;
     object-fit:none;
-    transform: scale(3);
+    transform: scale(2.5);
     transform-origin: 0px 0px;
     object-position: var(--left) var(--top);
     position: absolute;
     top: 0;
     left: 0;
+
 }
 
 #card_front{
     image-rendering: pixelated;
-    width: 213px;
-    height: 285px;
+    width: 177.5px;
+    height: 237.5px;
+}
+
+.btn-roll-card{
+    display: block !important;
+    margin: 20px auto 0 auto !important;
 }
 
 /*Inputs and button*/
@@ -123,32 +136,33 @@ select {
     padding: 10px;
     font-size: 16px;
     border: 2px solid #d8b800;
-    border-radius: 5px;
-    background-color: #8B0000;
-    color: white;
+    border-radius: 16px;
+    background-color: #d8b800;
+    color: #8B0000;
+    font-weight: bold;
     transition: border-color 0.3s ease, background-color 0.3s ease;
   }
 
   
   select option {
-    background-color: #8B0000;
+    background-color: #d8b800;
+    color: #8B0000;
   }
   
   
   /* CSS */
-  .button-19 {
+  .button {
     appearance: button;
-    background-color: #1899D6;
+    background-color: #705f00;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
     box-sizing: border-box;
-    color: #FFFFFF;
+    color: #8B0000;
     cursor: pointer;
     display: inline-block;
-    font-family: din-round,sans-serif;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: bolder;
     letter-spacing: .8px;
     line-height: 20px;
     margin: 0;
@@ -162,14 +176,13 @@ select {
     transition: filter .2s;
     user-select: none;
     -webkit-user-select: none;
-    vertical-align: middle;
     white-space: nowrap;
-    width: 100%;
+    width: 100px;
   }
   
-  .button-19:after {
+  .button:after {
     background-clip: padding-box;
-    background-color: #1CB0F6;
+    background-color: #d8b800;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -182,21 +195,180 @@ select {
     z-index: -1;
   }
   
-  .button-19,
-  .button-19:focus {
+  .button,
+  .button:focus {
     user-select: auto;
   }
   
-  .button-19:hover:not(:disabled) {
+  .button:hover:not(:disabled) {
     filter: brightness(1.1);
     -webkit-filter: brightness(1.1);
   }
   
-  .button-19:disabled {
+  .button:disabled {
     cursor: auto;
   }
   
-  .button-19:active {
-    border-width: 4px 0 0;
-    background: none;
+
+  /*Dice border*/
+  .pixel-corners,
+  .pixel-corners--wrapper {
+    clip-path: polygon(0px calc(100% - 15px),
+      3px calc(100% - 15px),
+      3px calc(100% - 9px),
+      6px calc(100% - 9px),
+      6px calc(100% - 6px),
+      9px calc(100% - 6px),
+      9px calc(100% - 3px),
+      15px calc(100% - 3px),
+      15px 100%,
+      calc(100% - 15px) 100%,
+      calc(100% - 15px) calc(100% - 3px),
+      calc(100% - 9px) calc(100% - 3px),
+      calc(100% - 9px) calc(100% - 6px),
+      calc(100% - 6px) calc(100% - 6px),
+      calc(100% - 6px) calc(100% - 9px),
+      calc(100% - 3px) calc(100% - 9px),
+      calc(100% - 3px) calc(100% - 15px),
+      100% calc(100% - 15px),
+      100% 15px,
+      calc(100% - 3px) 15px,
+      calc(100% - 3px) 9px,
+      calc(100% - 6px) 9px,
+      calc(100% - 6px) 6px,
+      calc(100% - 9px) 6px,
+      calc(100% - 9px) 3px,
+      calc(100% - 15px) 3px,
+      calc(100% - 15px) 0px,
+      15px 0px,
+      15px 3px,
+      9px 3px,
+      9px 6px,
+      6px 6px,
+      6px 9px,
+      3px 9px,
+      3px 15px,
+      0px 15px);
+    position: relative;
+  }
+  .pixel-corners {
+    border: 3px solid transparent;
+  }
+  .pixel-corners--wrapper {
+    width: fit-content;
+    height: fit-content;
+  }
+  .pixel-corners--wrapper .pixel-corners {
+    display: block;
+    clip-path: polygon(3px 15px,
+      6px 15px,
+      6px 9px,
+      9px 9px,
+      9px 6px,
+      15px 6px,
+      15px 3px,
+      calc(100% - 15px) 3px,
+      calc(100% - 15px) 6px,
+      calc(100% - 9px) 6px,
+      calc(100% - 9px) 9px,
+      calc(100% - 6px) 9px,
+      calc(100% - 6px) 15px,
+      calc(100% - 3px) 15px,
+      calc(100% - 3px) calc(100% - 15px),
+      calc(100% - 6px) calc(100% - 15px),
+      calc(100% - 6px) calc(100% - 9px),
+      calc(100% - 9px) calc(100% - 9px),
+      calc(100% - 9px) calc(100% - 6px),
+      calc(100% - 15px) calc(100% - 6px),
+      calc(100% - 15px) calc(100% - 3px),
+      15px calc(100% - 3px),
+      15px calc(100% - 6px),
+      9px calc(100% - 6px),
+      9px calc(100% - 9px),
+      6px calc(100% - 9px),
+      6px calc(100% - 15px),
+      3px calc(100% - 15px));
+  }
+  .pixel-corners::after,
+  .pixel-corners--wrapper::after {
+    content: "";
+    position: absolute;
+    clip-path: polygon(0px calc(100% - 15px),
+      3px calc(100% - 15px),
+      3px calc(100% - 9px),
+      6px calc(100% - 9px),
+      6px calc(100% - 6px),
+      9px calc(100% - 6px),
+      9px calc(100% - 3px),
+      15px calc(100% - 3px),
+      15px 100%,
+      calc(100% - 15px) 100%,
+      calc(100% - 15px) calc(100% - 3px),
+      calc(100% - 9px) calc(100% - 3px),
+      calc(100% - 9px) calc(100% - 6px),
+      calc(100% - 6px) calc(100% - 6px),
+      calc(100% - 6px) calc(100% - 9px),
+      calc(100% - 3px) calc(100% - 9px),
+      calc(100% - 3px) calc(100% - 15px),
+      100% calc(100% - 15px),
+      100% 15px,
+      calc(100% - 3px) 15px,
+      calc(100% - 3px) 9px,
+      calc(100% - 6px) 9px,
+      calc(100% - 6px) 6px,
+      calc(100% - 9px) 6px,
+      calc(100% - 9px) 3px,
+      calc(100% - 15px) 3px,
+      calc(100% - 15px) 0px,
+      15px 0px,
+      15px 3px,
+      9px 3px,
+      9px 6px,
+      6px 6px,
+      6px 9px,
+      3px 9px,
+      3px 15px,
+      0px 15px,
+      0px 50%,
+      3px 50%,
+      3px 15px,
+      6px 15px,
+      6px 9px,
+      9px 9px,
+      9px 6px,
+      15px 6px,
+      15px 3px,
+      calc(100% - 15px) 3px,
+      calc(100% - 15px) 6px,
+      calc(100% - 9px) 6px,
+      calc(100% - 9px) 9px,
+      calc(100% - 6px) 9px,
+      calc(100% - 6px) 15px,
+      calc(100% - 3px) 15px,
+      calc(100% - 3px) calc(100% - 15px),
+      calc(100% - 6px) calc(100% - 15px),
+      calc(100% - 6px) calc(100% - 9px),
+      calc(100% - 9px) calc(100% - 9px),
+      calc(100% - 9px) calc(100% - 6px),
+      calc(100% - 15px) calc(100% - 6px),
+      calc(100% - 15px) calc(100% - 3px),
+      15px calc(100% - 3px),
+      15px calc(100% - 6px),
+      9px calc(100% - 6px),
+      9px calc(100% - 9px),
+      6px calc(100% - 9px),
+      6px calc(100% - 15px),
+      3px calc(100% - 15px),
+      3px 50%,
+      0px 50%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    display: block;
+    pointer-events: none;
+  }
+  .pixel-corners::after {
+    margin: -3px;
   }

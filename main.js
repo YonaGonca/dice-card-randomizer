@@ -39,6 +39,7 @@ function createDice(number) {
     const dice = document.createElement("div");
 
     dice.classList.add("dice");
+    dice.classList.add("pixel-corners");
 
     for (const dotPosition of dotPositionMatrix[number]) {
         const dot = document.createElement("div");
@@ -88,6 +89,7 @@ function randomizeCard() {
 
     const cards = document.querySelector(".cards");
 
+    cards.src = "media/cards.png"
     cards.style.setProperty("--top", -randomFigure*95 + "px");
     cards.style.setProperty("--left", -randomNumber*71 + "px");
 }

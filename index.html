@@ -14,20 +14,22 @@
         <div class="dice-container">
 
         </div>
-        <button type="button" class="btn-roll-dice  button-19">Roll</button>
-        <select name="numberOfDice" id="numberOfDice" onchange="numberOfDice()">
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
+        <div id="dice-inputs">
+            <button type="button" class="btn-roll-dice  button">Roll</button>
+            <select name="numberOfDice" id="numberOfDice" onchange="numberOfDice()">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
     </div>
     <div id="container-card-roller">
         <div class="card-container">
             <img src="media/front.png" alt="" id="card_front">
-            <img src="media/cards.png" alt="" class="cards">
+            <img src="media/back.png" alt="" class="cards">
         </div>
-        <button type="button" class="btn-roll-card button-19">Roll</button>
+        <button type="button" class="btn-roll-card button">Roll</button>
     </div>
     </div>
 </body>
