@@ -29,8 +29,10 @@ This is a web application that allows users to roll virtual dice and draw random
 ```
 dice-card-randomizer/
 │-- index.html
-│-- main.css
-│-- main.js
+│-- styles/
+│   ├── main.css
+│-- scripts/
+│   ├── main.js
 │-- media/
 │   ├── front.png
 │   ├── back.png
