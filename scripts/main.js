@@ -45,6 +45,7 @@ function createDice(number) {
         const dot = document.createElement("div");
 
         dot.classList.add("dice-dot");
+        dot.classList.add("pixel-corners-dots");
         dot.style.setProperty("--top", dotPosition[0] + "%")
         dot.style.setProperty("--left", dotPosition[1] + "%")
         dice.appendChild(dot)
@@ -77,9 +78,6 @@ btnRollDice.addEventListener("click", () =>{
     setTimeout(() => clearInterval(interval), 1000)
 });
 
-function numberOfDice() {
-    NUMBER_OF_DICE = document.getElementById("numberOfDice").value;
-}
 
 //Card roller
 

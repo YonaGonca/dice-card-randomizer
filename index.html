@@ -4,24 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice and Card Roll</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
     <h1>Dice and Card Randomizer</h1>
     <div id="container">
     <div id="container-dice-roller">
         <div class="dice-container">
-
+            <div class="dice pixel-corners">
+                <div class="dice-dot pixel-corners-dots" style="--top: 20%; --left: 20%;"></div><div class="dice-dot pixel-corners-dots" style="--top: 20%; --left: 80%;"></div><div class="dice-dot pixel-corners-dots" style="--top: 50%; --left: 20%;"></div><div class="dice-dot pixel-corners-dots" style="--top: 50%; --left: 80%;"></div><div class="dice-dot pixel-corners-dots" style="--top: 80%; --left: 20%;"></div><div class="dice-dot pixel-corners-dots" style="--top: 80%; --left: 80%;"></div>
+            </div>
         </div>
         <div id="dice-inputs">
             <button type="button" class="btn-roll-dice  button">Roll</button>
-            <select name="numberOfDice" id="numberOfDice" onchange="numberOfDice()">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
         </div>
     </div>
     <div id="container-card-roller">
